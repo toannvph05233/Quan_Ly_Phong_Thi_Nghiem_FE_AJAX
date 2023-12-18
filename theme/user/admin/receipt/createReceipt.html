@@ -1,0 +1,503 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- theme meta -->
+    <meta name="theme-name" content="quixlab"/>
+
+    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../images/favicon.png">
+    <!-- Pignose Calender -->
+    <link href="../../../plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="../../../plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../../../plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- Custom Stylesheet -->
+    <link href="../../../css/style.css" rel="stylesheet">
+    <style>
+
+        .emp-profile {
+            padding: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+        }
+
+        .profile-img {
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 70%;
+            height: 100%;
+        }
+
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+            margin-top: -20%;
+            width: 70%;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            background: #212529b8;
+        }
+
+        .profile-img .file input {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .profile-head h5 {
+            color: #333;
+        }
+
+        .profile-head h6 {
+            color: #0062cc;
+        }
+
+        .profile-edit-btn {
+            border: none;
+            border-radius: 1.5rem;
+            width: 70%;
+            padding: 2%;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .proile-rating {
+            font-size: 12px;
+            color: #818182;
+            margin-top: 5%;
+        }
+
+        .proile-rating span {
+            color: #495057;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .profile-head .nav-tabs {
+            margin-bottom: 5%;
+        }
+
+        .profile-head .nav-tabs .nav-link {
+            font-weight: 600;
+            border: none;
+        }
+
+        .profile-head .nav-tabs .nav-link.active {
+            border: none;
+            border-bottom: 2px solid #0062cc;
+        }
+
+        .profile-work {
+            padding: 14%;
+            margin-top: -15%;
+        }
+
+        .profile-work p {
+            font-size: 12px;
+            color: #818182;
+            font-weight: 600;
+            margin-top: 10%;
+        }
+
+        .profile-work a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .profile-work ul {
+            list-style: none;
+        }
+
+        .profile-tab label {
+            font-weight: 600;
+        }
+
+        .profile-tab p {
+            font-weight: 600;
+            color: #0062cc;
+        }
+    </style>
+    <script src="addReceipt.js"></script>
+
+</head>
+
+<body>
+
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
+        </svg>
+    </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+    <!--**********************************
+        Nav header start
+    ***********************************-->
+    <div class="nav-header">
+        <div class="brand-logo">
+            <a href="device.html">
+                <b class="logo-abbr"><img src="../../../images/logo.png" alt=""> </b>
+                <span class="logo-compact"><img id="avatar" src="../../../images/logo-compact.png" alt=""></span>
+                <span class="brand-title">
+                        <img src="../../../images/logo-text.png" style="width: 120px;padding-left: 20px;" alt="">
+                    </span>
+            </a>
+        </div>
+    </div>
+    <!--**********************************
+        Nav header end
+    ***********************************-->
+
+    <!--**********************************
+        Header start
+    ***********************************-->
+    <div class="header">
+        <div class="header-content clearfix">
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
+            <div class="header-left">
+                <div class="input-group icons">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                                class="mdi mdi-magnify"></i></span>
+                    </div>
+                    <input type="search" class="form-control" placeholder="Search Dashboard"
+                           aria-label="Search Dashboard">
+                    <div class="drop-down animated flipInX d-md-none">
+                        <form action="#">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <ul class="clearfix">
+                    <li class="icons dropdown d-none d-md-flex">
+                        <span id="username"></span>
+                    </li>
+                    <li class="icons dropdown">
+                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                            <span class="activity active"></span>
+                            <img id="avatar_header" src="../../../images/user/1.png" height="40" width="40" alt="">
+                        </div>
+                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <i class="icon-envelope-open"></i> <span>Inbox</span>
+                                            <div class="badge gradient-3 badge-pill gradient-1">3</div>
+                                        </a>
+                                    </li>
+
+                                    <hr class="my-2">
+                                    <li>
+                                        <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                    </li>
+                                    <li><a href="../../../login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Header end ti-comment-alt
+    ***********************************-->
+
+    <!--**********************************
+        Sidebar start
+    ***********************************-->
+    <div class="nk-sidebar">
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+                <li class="nav-label">Dashboard</li>
+                <li>
+                    <a class="has-arrow" href="../../admin/chemistry/chemistry.html" aria-expanded="false">
+                        <i class="icon-speedometer"></i><span class="nav-text">Hóa Chất</span>
+                    </a>
+                    <!--                    <ul aria-expanded="false">-->
+                    <!--                        <li><a href="./liquidate.html">Home 1</a></li>-->
+                    <!--                        &lt;!&ndash; <li><a href="./index-2.html">Home 2</a></li> &ndash;&gt;-->
+                    <!--                    </ul>-->
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="has-arrow " href="../../admin/device/device.html" aria-expanded="false">
+                        <span class="nav-text">Công Cụ</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="has-arrow " href="../../admin/receipt/receipt.html" aria-expanded="false">
+                        <span class="nav-text">Phiếu</span>
+                    </a>
+                    <!--                    <ul aria-expanded="false">-->
+                    <!--                        <li><a href="./liquidate.html">Home 1</a></li>-->
+                    <!--                        &lt;!&ndash; <li><a href="./index-2.html">Home 2</a></li> &ndash;&gt;-->
+                    <!--                    </ul>-->
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="../../admin/liquidate/liquidate.html" aria-expanded="false">
+                        <span class="nav-text">Công cụ thanh lý</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="has-arrow active" href="../../admin/receipt/createReceipt.html" aria-expanded="false">
+                        <span class="nav-text">Phiếu nhập đồ</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--**********************************
+        Sidebar end
+    ***********************************-->
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+    <div class="content" style="padding-left: 15%">
+        <br>
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <div class="container" style="min-height: 620px">
+            <h1>Tạo Phiếu Nhập Đồ</h1>
+            <hr>
+            <div class="row" style="padding: 20px">
+                <div class="col-4">
+                    Tên phiếu :<input id="name" placeholder="name phiếu">
+                </div>
+                <div class="col-4">
+                    Nội dung :<input id="purpose" placeholder="mục đích phiếu">
+                </div>
+                <br>
+                <br>
+                <br>
+                <button type="button" class="btn btn-success" onclick="createChemistryDraft()">Tạo Phiếu</button>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-3"><h3>Danh Sách Công Cụ</h3></div>
+                <div class="col-8">
+                    <button style="padding: 5px" data-toggle="modal" data-target="#myModalDevice">Thêm công cụ</button>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Create Date</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Status</th>
+                    <th>End Date</th>
+                    <th>Describe</th>
+                </tr>
+                </thead>
+                <tbody id="showD">
+                <tbody>
+            </table>
+
+
+            <div class="row">
+                <div class="col-3"><h3>Danh Sách Hóa Chất</h3></div>
+                <div class="col-8">
+                    <button style="padding: 5px" data-toggle="modal" data-target="#myModalChemistry">Thêm hóa chất
+                    </button>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Create Date</th>
+                    <th>Quantity</th>
+                    <th>End Date</th>
+                    <th>Describe</th>
+                </tr>
+                </thead>
+                <tbody id="showC">
+                <tbody>
+            </table>
+        </div>
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a>
+                    2018
+                </p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModalDevice">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6"><h4>Danh Sách Công Cụ</h4></div>
+                    <div class="col-6">
+                        <input id="searchDevice" placeholder="search công cụ" style="padding: 5px; width: 200px">
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th>Status</th>
+                        <th>End Date</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody id="showDevice">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="myModalChemistry">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6"><h4>Danh Sách Hóa Chất</h4></div>
+                    <div class="col-6">
+                        <input id="searchChemistry" placeholder="search hóa chất" style="padding: 5px; width: 200px">
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Create Date</th>
+                        <th>Quantity</th>
+                        <th>End Date</th>
+                        <th>Add</th>
+                    </tr>
+                    </thead>
+                    <tbody id="showChemistry">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--**********************************
+    Scripts
+***********************************-->
+<script src="../../../plugins/common/common.min.js"></script>
+<script src="../../../js/custom.min.js"></script>
+<script src="../../../js/settings.js"></script>
+<script src="../../../js/gleek.js"></script>
+<script src="../../../js/styleSwitcher.js"></script>
+
+<!-- Chartjs -->
+<script src="../../../plugins/chart.js/Chart.bundle.min.js"></script>
+<!-- Circle progress -->
+<script src="../../../plugins/circle-progress/circle-progress.min.js"></script>
+<!-- Datamap -->
+<script src="../../../plugins/d3v3/index.js"></script>
+<script src="../../../plugins/topojson/topojson.min.js"></script>
+<script src="../../../plugins/datamaps/datamaps.world.min.js"></script>
+<!-- Morrisjs -->
+<script src="../../../plugins/raphael/raphael.min.js"></script>
+<script src="../../../plugins/morris/morris.min.js"></script>
+<!-- Pignose Calender -->
+<script src="../../../plugins/moment/moment.min.js"></script>
+<script src="../../../plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+<!-- ChartistJS -->
+<script src="../../../plugins/chartist/js/chartist.min.js"></script>
+<script src="../../../plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+<script src="../../../js/dashboard/dashboard-1.js"></script>
+
+</body>
+
+</html>
+
+
+<script src="createReceipt.js"></script>
+
